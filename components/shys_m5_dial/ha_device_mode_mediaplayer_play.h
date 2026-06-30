@@ -66,13 +66,13 @@ namespace esphome
 
                    
                     // Percent
-                    display.setFontsize(1.7);
+                    display.setFontsize(2.0);
                     gfx->drawString((String(getValue()) + "%").c_str(),
                                     width / 2,
                                     height / 2 - 70);
 
                     // Mode
-                    display.setFontsize(1);
+                    display.setFontsize(1.2);
                     gfx->drawString(this->player_state.c_str(),
                                     width / 2,
                                     height / 2 - 40);  
