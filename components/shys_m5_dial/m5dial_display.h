@@ -20,7 +20,7 @@ namespace esphome
     {
         class M5DialDisplay {
             protected:
-                uint16_t backgroundColor = YELLOW;
+                uint16_t backgroundColor = BLACK;
 
                 LovyanGFX* gfx = &M5Dial.Display;
 
@@ -87,7 +87,7 @@ namespace esphome
                 }
 
                 void setBackgroundColor(uint16_t color){
-                    this->backgroundColor = backgroundColor;
+                    this->backgroundColor = color;
                 }
 
                 uint16_t getBackgroundColor(){
