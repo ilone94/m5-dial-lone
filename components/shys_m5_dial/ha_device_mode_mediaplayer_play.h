@@ -38,12 +38,12 @@ namespace esphome
                     uint16_t height = gfx->height();
                     uint16_t width  = gfx->width();
 
-                    gfx->setTextColor(MAROON);
+                    gfx->setTextColor(WHITE);
                     gfx->setTextDatum(middle_center);
 
                     gfx->startWrite();                      // Secure SPI bus
 
-                    display.clear();
+                    display.clear(BLACK);
 
                     // Round Volume Bar
                     gfx->fillArc(width / 2,
@@ -52,7 +52,7 @@ namespace esphome
                                  100,
                                  150,
                                  getValue()==0?150:(((float)240 / 100) * getValue()) + 150,
-                                 RED
+                                 WHITE     
                                 );
 
                     gfx->fillArc(width / 2,
@@ -61,7 +61,7 @@ namespace esphome
                                  100,
                                  getValue()==0?150:(((float)240 / 100) * getValue()) + 150,
                                  390,
-                                 ORANGE
+                                 DARKGREY
                                 );
 
                    
@@ -81,26 +81,26 @@ namespace esphome
 
                     if(strcmp(this->player_state.c_str(), "playing") == 0){
                         // Pause Button
-                        gfx->fillRect(width/2-20, height/2-20, 15, 40, RED);
-                        gfx->fillRect(width/2+5, height/2-20, 15, 40, RED);
+                        gfx->fillRect(width/2-20, height/2-20, 15, 40, WHITE);
+                        gfx->fillRect(width/2+5, height/2-20, 15, 40, WHITE);
                     } else {
                         // Play Button
-                        M5Dial.Display.fillTriangle(width/2-13, height/2-20, width/2-13, height/2+20, width/2+23, height/2, RED);
+                        M5Dial.Display.fillTriangle(width/2-13, height/2-20, width/2-13, height/2+20, width/2+23, height/2, WHITE);
                     }
 
                     // FWD
-                    M5Dial.Display.fillTriangle(width/2+50, height/2-20, width/2+50, height/2+20, width/2+75, height/2, RED);
-                    M5Dial.Display.fillTriangle(width/2+65, height/2-20, width/2+65, height/2+20, width/2+95, height/2, RED);
+                    M5Dial.Display.fillTriangle(width/2+50, height/2-20, width/2+50, height/2+20, width/2+75, height/2, WHITE);
+                    M5Dial.Display.fillTriangle(width/2+65, height/2-20, width/2+65, height/2+20, width/2+95, height/2, WHITE);
 
                     // PREV
-                    M5Dial.Display.fillTriangle(width/2-50, height/2-20, width/2-50, height/2+20, width/2-75, height/2, RED);
-                    M5Dial.Display.fillTriangle(width/2-65, height/2-20, width/2-65, height/2+20, width/2-95, height/2, RED);
+                    M5Dial.Display.fillTriangle(width/2-50, height/2-20, width/2-50, height/2+20, width/2-75, height/2, WHITE);
+                    M5Dial.Display.fillTriangle(width/2-65, height/2-20, width/2-65, height/2+20, width/2-95, height/2, WHITE);
 
 
 
                     // Position Bar
-                    gfx->fillRect(width/2-50, height/2+40, 100, 5, ORANGE);
-                    gfx->fillRect(width/2-50, height/2+40, getMediaPositionPct(), 5, RED);
+                    gfx->fillRect(width/2-50, height/2+40, 100, 5, DARKGREY);
+                    gfx->fillRect(width/2-50, height/2+40, getMediaPositionPct(), 5, WHITE);
 
 
                     // Media-Artist/Title
