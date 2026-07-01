@@ -45,6 +45,8 @@ namespace esphome
 
                     display.clear(BLACK);
 
+                    uint16_t volumeBlue = gfx->color565(33, 150, 243);
+
                     // Round Volume Bar
                     gfx->fillArc(width / 2,
                                  height / 2,
@@ -52,7 +54,7 @@ namespace esphome
                                  100,
                                  150,
                                  getValue()==0?150:(((float)240 / 100) * getValue()) + 150,
-                                 WHITE     
+                                 volumeBlue    
                                 );
 
                     gfx->fillArc(width / 2,
